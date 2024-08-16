@@ -24,7 +24,12 @@ public class Game {
             throw new Exception("The position is not valid");
         }
 
-        if (panel[row][col].equals("[ ]")) panel[row][col] = player.isPlayerOne ? "[X]" : "[O]";
+        if (panel[row][col].equals("[ ]")) {
+            panel[row][col] = player.isPlayerOne ? "[X]" : "[O]";
+        } else {
+            System.out.println("Position (" + row + "," + col + ") is already full");
+            player.isPlayerOne = !player.isPlayerOne;
+        }
     }
 
     public void gameOver(String[][] panel) {
